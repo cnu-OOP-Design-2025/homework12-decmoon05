@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include <stdexcept> // 예외 처리를 위해 추가
+#include <stdexcept>
 #include "character.h"
-#include "logger.h"  // Logger 사용을 위해 추가
+#include "logger.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ void equip_test1(shared_ptr<Character> c1) {
     }
     catch (const invalid_argument& e) {
         cout << "Invalid equip: " << e.what() << endl;
-        Logger::getInstance()->log("[Fail to Equip]");
+        Logger::getInstance()->log("[Fail to Equip] ");
     }
 }
 
@@ -34,7 +34,7 @@ void equip_test2(shared_ptr<Character> c1) {
     }
     catch (const invalid_argument& e) {
         cout << "Invalid equip: " << e.what() << endl;
-        Logger::getInstance()->log("[Fail to Equip]");
+        Logger::getInstance()->log("[Fail to Equip] ");
     }
 }
 
@@ -49,12 +49,11 @@ void equip_test3(shared_ptr<Character> c1) {
     }
     catch (const invalid_argument& e) {
         cout << "Invalid equip: " << e.what() << endl;
-        Logger::getInstance()->log("[Fail to Equip]");
+        Logger::getInstance()->log("[Fail to Equip] ");
     }
 }
 
 void doTest() {
-    // Logger 인스턴스를 미리 생성하여 [Init] 로그가 먼저 찍히도록 함 (선택 사항이나 흐름상 자연스러움)
     Logger::getInstance();
 
     vector<shared_ptr<Character>> players;
